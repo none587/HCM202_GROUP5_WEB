@@ -6789,5 +6789,59 @@ document.addEventListener('keydown',e=>{
 })();
 </script>
 
+
+<!-- ===== Added CQ + AI information (existing content unchanged) ===== -->
+<style id="cq-ai-addon-style">
+.cqAiTools{position:fixed;right:24px;bottom:24px;z-index:1200;display:flex;gap:10px;align-items:center}
+.cqAiBtn{border:0;border-radius:999px;padding:12px 18px;font:900 13px/1 "Segoe UI",Arial,sans-serif;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.18);transition:.18s transform,.18s box-shadow}
+.cqAiBtn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.24)}
+.cqAiBtn.cq{background:#cf2018;color:#fff}.cqAiBtn.ai{background:#171717;color:#ffd900}
+.cqAiModal{position:fixed;inset:0;z-index:1300;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(12,10,9,.72);backdrop-filter:blur(10px)}
+.cqAiModal.open{display:flex}.cqAiCard{width:min(920px,94vw);max-height:86vh;overflow:auto;background:#faf7f0;border:1px solid #d8cec0;border-radius:28px;padding:30px;box-shadow:0 30px 80px rgba(0,0,0,.28);position:relative}
+.cqAiClose{position:absolute;right:16px;top:16px;width:38px;height:38px;border:0;border-radius:50%;background:#171717;color:#fff;font-size:22px;cursor:pointer}
+.cqAiLabel{display:inline-block;margin-bottom:14px;padding:7px 11px;border-radius:999px;background:#cf2018;color:#fff;font-size:12px;font-weight:1000;letter-spacing:.08em}
+.cqAiCard h2{font-size:clamp(32px,4vw,54px)!important;line-height:1.05!important;margin:0 48px 18px 0!important;color:#14110f!important}
+.cqAiQuestion{font-size:18px!important;line-height:1.6!important;font-weight:800;color:#14110f!important;padding:18px 20px;border-left:5px solid #cf2018;background:#fff;border-radius:0 18px 18px 0;margin-bottom:20px}
+.cqAiAnswer{font-size:18px!important;line-height:1.7!important;color:#39332e!important;margin:0}.cqAiAnswer+p.cqAiAnswer{margin-top:12px}
+.cqAiCard.aiCard .cqAiLabel{background:#171717;color:#ffd900}.cqAiCard.aiCard h2{margin-bottom:14px!important}
+@media(max-width:680px){.cqAiTools{right:12px;bottom:12px}.cqAiBtn{padding:10px 14px}.cqAiCard{padding:24px 20px}.cqAiQuestion,.cqAiAnswer{font-size:16px!important}}
+</style>
+<div class="cqAiTools" aria-label="Thông tin bổ sung">
+  <button class="cqAiBtn cq" type="button" data-open-cq="cqModal">CQ</button>
+  <button class="cqAiBtn ai" type="button" data-open-cq="aiModal">Ứng dụng AI</button>
+</div>
+<div class="cqAiModal" id="cqModal" role="dialog" aria-modal="true" aria-labelledby="cqTitle">
+  <div class="cqAiCard">
+    <button class="cqAiClose" type="button" aria-label="Đóng">×</button>
+    <div class="cqAiLabel">CQ7</div>
+    <h2 id="cqTitle">Câu hỏi phản biện</h2>
+    <div class="cqAiQuestion">Theo các bạn, khi xác định chủ thể của khối đại đoàn kết dân tộc, vì sao Hồ Chí Minh không lựa chọn chỉ đoàn kết trong giai cấp công nhân mà xác định là toàn thể nhân dân Việt Nam? Điều này có đi ngược lại với lý luận quan điểm “Vô sản toàn thế giới, đoàn kết lại” của Mác - Ăngghen không?</div>
+    <p class="cqAiAnswer">Hồ Chí Minh xác định chủ thể của khối đại đoàn kết là toàn thể nhân dân chứ không chỉ riêng giai cấp công nhân vì Người xuất phát từ điều kiện thực tế của Việt Nam là một nước thuộc địa. Lúc đó, nhiệm vụ trước hết là giải phóng dân tộc, mà đây không chỉ là lợi ích của công nhân mà là lợi ích chung của toàn thể người Việt Nam. Vì vậy phải tập hợp mọi lực lượng yêu nước để tạo thành sức mạnh lớn nhất.</p>
+    <p class="cqAiAnswer">Điều này không phủ nhận quan điểm “Vô sản tất cả các nước, đoàn kết lại” của Marx và Engels. Hồ Chí Minh vẫn coi công nhân, nông dân và trí thức là nền tảng của khối đại đoàn kết, nhưng trên nền tảng đó mở rộng đoàn kết với các tầng lớp khác. Có thể hiểu đây là sự vận dụng lý luận Marxist vào điều kiện cụ thể của Việt Nam, kết hợp giữa đoàn kết giai cấp với đoàn kết dân tộc.</p>
+  </div>
+</div>
+<div class="cqAiModal" id="aiModal" role="dialog" aria-modal="true" aria-labelledby="aiTitle">
+  <div class="cqAiCard aiCard">
+    <button class="cqAiClose" type="button" aria-label="Đóng">×</button>
+    <div class="cqAiLabel">ỨNG DỤNG AI</div>
+    <h2 id="aiTitle">AI được sử dụng trong sản phẩm</h2>
+    <p class="cqAiAnswer">Nhóm đã sử dụng NotebookLM để tổng hợp thông tin, Chatgpt để tạo web và game</p>
+  </div>
+</div>
+<script id="cq-ai-addon-script">
+(() => {
+  const modals = [...document.querySelectorAll('.cqAiModal')];
+  const closeAll = () => modals.forEach(m => m.classList.remove('open'));
+  document.querySelectorAll('[data-open-cq]').forEach(btn => btn.addEventListener('click', () => {
+    closeAll();
+    document.getElementById(btn.dataset.openCq)?.classList.add('open');
+  }));
+  modals.forEach(m => {
+    m.querySelector('.cqAiClose')?.addEventListener('click', closeAll);
+    m.addEventListener('click', e => { if(e.target === m) closeAll(); });
+  });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeAll(); });
+})();
+</script>
 </body>
 </html>
