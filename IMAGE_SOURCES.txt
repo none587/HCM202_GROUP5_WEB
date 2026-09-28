@@ -1,0 +1,11 @@
+Additional archival imagery was inserted from the presentation's existing source asset set to keep the package self-contained and avoid broken online images.
+
+Authoritative image libraries researched for further replacements/additions:
+- Bảo tàng Hồ Chí Minh – Thư viện ảnh: https://baotanghochiminh.vn/hinh-anh.htm
+- Bảo tàng Lịch sử Quốc gia – Thư viện ảnh: https://baotanglichsuquocgia.vn/vi/Gallery
+- Uỷ ban Trung ương MTTQ Việt Nam – lịch sử Mặt trận: https://mattran.org.vn/
+
+V32 adjustments:
+- Slide 23 and Slide 25 duplicated imagery were replaced with different archival photos already bundled in the package.
+- Slide 26 layout was re-centered.
+- Slide 29 was changed to a black thank-you ending with uppercase 'CẢM ƠN' and cleaner typography.
