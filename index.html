@@ -6028,6 +6028,1232 @@ h1,h2{
 }
 </style>
 
+<style id="v34-requested-fixes">
+/* ===== V34 targeted fixes from user review ===== */
+
+/* Slide 1: prevent headline/image overlap and remove orphaned feeling */
+#s01 .hero-grid{
+  width:min(1280px,86vw) !important;
+  grid-template-columns:minmax(0,620px) minmax(320px,430px) !important;
+  gap:72px !important;
+  justify-content:center !important;
+  align-items:center !important;
+}
+#s01 .hero-copy{
+  max-width:620px !important;
+  z-index:3 !important;
+}
+#s01 .hero-copy h1{
+  max-width:620px !important;
+  font-size:clamp(60px,5.4vw,96px) !important;
+  line-height:.93 !important;
+  letter-spacing:-.05em !important;
+  margin:0 0 18px !important;
+}
+#s01 .hero-copy h1 .hero-line{
+  display:block !important;
+  white-space:nowrap !important;
+}
+#s01 .hero-copy h1 .hero-line + .hero-line{margin-top:.08em !important;}
+#s01 .hero-copy h3{
+  font-size:clamp(28px,2.3vw,42px) !important;
+  line-height:1.05 !important;
+}
+#s01 .hero-portrait{
+  min-height:540px !important;
+  justify-self:center !important;
+}
+#s01 .portrait-img{
+  max-height:560px !important;
+  max-width:100% !important;
+}
+#s01 .portrait-ring{
+  width:420px !important;
+  height:420px !important;
+  bottom:52px !important;
+}
+
+/* Slide 4: show Bác clearly, do not crop off head */
+#s04 .wide-quote{
+  grid-template-columns:48% 52% !important;
+  min-height:330px !important;
+}
+#s04 .wide-quote .mini-photo{
+  height:330px !important;
+}
+#s04 .wide-quote .mini-photo .photo{
+  object-fit:cover !important;
+  object-position:18% 12% !important;
+}
+
+/* Slide 26: move the whole composition to the center and keep title readable */
+#s26 .wrap.role-balanced,
+#s26 .role-balanced{
+  width:min(1260px,88vw) !important;
+  margin-inline:auto !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:56px !important;
+}
+#s26 .role-copy,
+#s26 .role-photo{
+  flex:0 0 520px !important;
+  max-width:520px !important;
+  width:520px !important;
+  margin:0 !important;
+}
+#s26 .role-copy{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-self:center !important;
+}
+#s26 .role-copy .kicker{
+  margin-bottom:14px !important;
+}
+#s26 .role-copy h2{
+  max-width:none !important;
+  font-size:clamp(62px,4.8vw,82px) !important;
+  line-height:.94 !important;
+  letter-spacing:-.045em !important;
+  margin:0 0 24px !important;
+  text-wrap:initial !important;
+  white-space:normal !important;
+}
+#s26 .role-copy h2 .role-line{
+  display:block !important;
+  white-space:nowrap !important;
+  margin:0 !important;
+}
+#s26 .role-copy h2 .role-line + .role-line{margin-top:.05em !important;}
+#s26 .centered-stack{
+  width:100% !important;
+  max-width:520px !important;
+  gap:14px !important;
+  margin:0 !important;
+}
+#s26 .triple-item{
+  min-height:84px !important;
+  padding:18px 22px !important;
+  grid-template-columns:64px 1fr !important;
+  gap:14px !important;
+}
+#s26 .triple-item b{
+  font-size:30px !important;
+  line-height:1 !important;
+}
+#s26 .triple-item span{
+  font-size:18px !important;
+  line-height:1.4 !important;
+}
+#s26 .role-photo{
+  height:390px !important;
+  min-height:390px !important;
+  justify-self:center !important;
+  align-self:center !important;
+}
+#s26 .role-photo .photo{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center 26% !important;
+}
+
+@media (max-width:1100px){
+  #s01 .hero-grid,
+  #s26 .wrap.role-balanced,
+  #s26 .role-balanced{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    width:min(820px,92vw) !important;
+    gap:30px !important;
+  }
+  #s01 .hero-copy,
+  #s01 .hero-portrait,
+  #s26 .role-copy,
+  #s26 .role-photo{
+    max-width:100% !important;
+    width:100% !important;
+    flex:auto !important;
+  }
+  #s01 .hero-copy h1 .hero-line,
+  #s26 .role-copy h2 .role-line{white-space:normal !important;}
+}
+</style>
+
+
+<style id="v35-final-user-fixes">
+/* ===== V35 final user fixes ===== */
+/* Navigation: keep bottom page numbers clickable */
+.quickNav,.rail,.counter,.progress{z-index:4000 !important;}
+.quickNav,.rail,.rail a,.quickNav a{pointer-events:auto !important;}
+.rail a,.quickNav a{cursor:pointer !important; user-select:none !important;}
+
+/* Slide 1: separate title from portrait, avoid overlap and lonely line */
+#s01 .hero-grid{
+  width:min(1260px,88vw) !important;
+  grid-template-columns:minmax(0,560px) minmax(340px,440px) !important;
+  gap:92px !important;
+  justify-content:center !important;
+  align-items:center !important;
+}
+#s01 .hero-copy{max-width:560px !important; justify-self:start !important;}
+#s01 .hero-copy h1{
+  max-width:560px !important;
+  font-size:clamp(58px,5vw,88px) !important;
+  line-height:.92 !important;
+  letter-spacing:-.048em !important;
+  margin:0 0 18px !important;
+}
+#s01 .hero-copy h1 .hero-line{display:block !important; white-space:normal !important;}
+#s01 .hero-copy h1 .hero-line + .hero-line{margin-top:.07em !important;}
+#s01 .hero-copy h3{font-size:clamp(26px,2vw,38px) !important; line-height:1.06 !important;}
+#s01 .hero-portrait{min-height:540px !important; justify-self:center !important; align-self:end !important;}
+#s01 .portrait-img{max-height:560px !important; width:auto !important; object-fit:contain !important;}
+#s01 .portrait-ring{width:410px !important; height:410px !important; bottom:48px !important;}
+
+/* Slide 4: show Bác fully, do not crop head */
+#s04 .wide-quote{grid-template-columns:260px 1fr !important; gap:26px !important; min-height:320px !important;}
+#s04 .wide-quote .mini-photo{height:280px !important; background:#f7f2ea !important; display:flex !important; align-items:center !important; justify-content:center !important;}
+#s04 .wide-quote .mini-photo .photo{object-fit:contain !important; object-position:center center !important; background:#f7f2ea !important;}
+
+/* Slide 7: archival image should show face/head clearly */
+#s07 .added-archive-photo{height:220px !important; background:rgba(255,255,255,.12) !important;}
+#s07 .added-archive-photo img{object-fit:contain !important; object-position:center center !important; background:rgba(255,255,255,.08) !important;}
+
+/* Slide 14: make title readable on warm background */
+#s14{background:#efe6d8 !important; color:#181513 !important;}
+#s14 .cover-bg{opacity:.14 !important; filter:grayscale(1) brightness(1.08) contrast(.92) !important;}
+#s14::after{background:linear-gradient(100deg,rgba(244,238,228,.97) 0%,rgba(244,238,228,.90) 56%,rgba(244,238,228,.72) 100%) !important; z-index:1 !important;}
+#s14 .cover-inner{
+  position:relative !important; z-index:3 !important;
+  width:min(1120px,84vw) !important;
+  padding:34px 38px !important;
+  border-radius:28px !important;
+  background:rgba(255,250,242,.72) !important;
+  border:1px solid rgba(0,0,0,.06) !important;
+  box-shadow:0 18px 40px rgba(38,22,12,.08) !important;
+  backdrop-filter:blur(4px) !important;
+}
+#s14 .section-no,#s14 .section-no.yellow,#s14 .small-title{color:#c5231b !important;}
+#s14 .cover-inner h2{
+  color:#14110f !important;
+  text-shadow:none !important;
+  font-size:clamp(52px,4.8vw,82px) !important;
+  line-height:1.03 !important;
+  letter-spacing:-.035em !important;
+  max-width:18ch !important;
+}
+
+/* Slide 23: preserve clear line breaks */
+#s23 .copy h2{max-width:10.2ch !important; gap:16px !important;}
+#s23 .copy h2 .line1,#s23 .copy h2 .line2{line-height:.98 !important;}
+
+/* Slide 26: center the WHOLE composition, no off-center layout */
+#s26 .wrap.role-balanced, #s26 .role-balanced{
+  width:min(1120px,84vw) !important;
+  display:grid !important;
+  grid-template-columns:520px 520px !important;
+  justify-content:center !important;
+  justify-items:center !important;
+  align-items:center !important;
+  column-gap:56px !important;
+  row-gap:24px !important;
+  margin:0 auto !important;
+}
+#s26 .role-copy,#s26 .role-photo{width:520px !important; max-width:520px !important; margin:0 !important; justify-self:center !important; align-self:center !important;}
+#s26 .role-copy{display:flex !important; flex-direction:column !important; justify-content:center !important;}
+#s26 .role-copy h2{font-size:clamp(62px,4.8vw,82px) !important; line-height:.95 !important; letter-spacing:-.042em !important; margin:0 0 22px !important; max-width:100% !important;}
+#s26 .role-copy h2 .role-line{display:block !important; white-space:nowrap !important; margin:0 !important;}
+#s26 .role-copy h2 .role-line + .role-line{margin-top:.05em !important;}
+#s26 .centered-stack{width:100% !important; max-width:520px !important; gap:14px !important; margin:0 !important;}
+#s26 .triple-item{min-height:82px !important; padding:18px 20px !important; grid-template-columns:60px 1fr !important; gap:12px !important;}
+#s26 .triple-item b{font-size:28px !important; line-height:1 !important;}
+#s26 .triple-item span{font-size:17px !important; line-height:1.38 !important;}
+#s26 .role-photo{height:360px !important; min-height:360px !important; border-radius:28px !important;}
+#s26 .role-photo .photo{width:100% !important; height:100% !important; object-fit:contain !important; object-position:center center !important; background:#f3eee5 !important;}
+
+/* Slide 28: keep quote visible */
+#s28 .final-inner h2{font-size:clamp(58px,6vw,98px) !important; line-height:.99 !important;}
+
+/* Slide 29: pure black thank-you slide with cleaner uppercase typography */
+#s29,#s29.screen,#s29.thanks{background:#040404 !important; background-image:none !important;}
+#s29 .thanks-bg{display:none !important;}
+#s29::after{background:radial-gradient(circle at 50% 40%, rgba(255,215,80,.06), transparent 22%), #040404 !important;}
+#s29 .thanks-inner{width:min(980px,84vw) !important; text-align:center !important;}
+#s29 .thanks-kicker{color:#d7b450 !important; font-size:clamp(14px,1vw,18px) !important; letter-spacing:.26em !important; font-weight:800 !important; text-transform:uppercase !important; margin-bottom:18px !important;}
+#s29 .thanks-inner h2{color:#fff9ef !important; font-family:"Segoe UI Black","Arial Black","Segoe UI",Arial,sans-serif !important; font-style:normal !important; font-weight:900 !important; font-size:clamp(92px,10vw,164px) !important; letter-spacing:.05em !important; line-height:.93 !important; text-transform:uppercase !important; text-shadow:none !important; margin:0 !important;}
+#s29 .thanks-inner h2::before,#s29 .thanks-inner h2::after{display:none !important; content:none !important;}
+#s29 .thanks-sub{margin-top:24px !important; color:#ebe0cf !important; font-size:clamp(18px,1.5vw,24px) !important; font-weight:600 !important; line-height:1.5 !important;}
+#s29 .thanks-inner::after{content:""; display:block; width:min(260px,28vw); height:3px; margin:22px auto 0; border-radius:999px; background:linear-gradient(90deg, transparent, #d7b450, transparent);}
+
+@media (max-width:1100px){
+  #s01 .hero-grid,
+  #s26 .wrap.role-balanced,#s26 .role-balanced{grid-template-columns:1fr !important; width:min(760px,90vw) !important; gap:30px !important;}
+  #s01 .hero-copy,#s01 .hero-portrait,#s26 .role-copy,#s26 .role-photo{width:100% !important; max-width:100% !important;}
+  #s26 .role-photo{height:340px !important; min-height:340px !important;}
+  #s26 .role-copy h2 .role-line{white-space:normal !important;}
+}
+</style>
+
+
+<style id="v37-slide26-complete-redesign">
+#s26{
+  background:
+    radial-gradient(circle at 12% 14%, rgba(217,37,29,.07), transparent 26%),
+    radial-gradient(circle at 86% 82%, rgba(233,194,76,.10), transparent 22%),
+    linear-gradient(180deg, #f8f2e8 0%, #eee1cf 100%) !important;
+  overflow:hidden !important;
+}
+#s26::before{
+  content:"";
+  position:absolute;
+  inset:auto auto -130px -130px;
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(199,40,28,.10) 0%, rgba(199,40,28,.05) 35%, transparent 70%);
+  pointer-events:none;
+}
+#s26::after{
+  content:"";
+  position:absolute;
+  top:-120px;
+  right:-120px;
+  width:340px;
+  height:340px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(239,198,73,.18) 0%, rgba(239,198,73,.07) 38%, transparent 70%);
+  pointer-events:none;
+}
+#s26 .slide26-frame{
+  position:relative;
+  z-index:2;
+  width:min(1240px,86vw);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+  align-items:center;
+  gap:54px;
+}
+#s26 .slide26-copy{
+  background:linear-gradient(180deg, rgba(255,251,245,.92), rgba(250,243,233,.96));
+  border:1px solid rgba(184,158,123,.28);
+  border-radius:34px;
+  box-shadow:0 24px 52px rgba(37,22,11,.10);
+  padding:34px 34px 32px;
+}
+#s26 .slide26-kicker{
+  color:#c61f18;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-size:14px;
+  margin-bottom:14px;
+}
+#s26 .slide26-copy h2{
+  margin:0 0 22px;
+  font-size:clamp(54px,4.7vw,78px);
+  line-height:.94;
+  letter-spacing:-.045em;
+  color:#15110f;
+}
+#s26 .slide26-copy h2 span{display:block; color:#c61f18;}
+#s26 .slide26-items{display:grid; gap:14px;}
+#s26 .slide26-item{
+  display:grid;
+  grid-template-columns:78px 1fr;
+  align-items:center;
+  gap:16px;
+  min-height:96px;
+  padding:16px 18px;
+  border-radius:24px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(199,183,162,.56);
+  box-shadow:0 14px 28px rgba(47,30,19,.08);
+}
+#s26 .slide26-num{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  font-size:24px;
+  color:#fff8ee;
+  background:linear-gradient(135deg, #d9251d 0%, #b81913 100%);
+  box-shadow:0 8px 18px rgba(185,25,19,.22);
+}
+#s26 .slide26-text{
+  font-size:21px;
+  line-height:1.42;
+  color:#201713;
+  font-weight:600;
+}
+#s26 .slide26-visual{
+  position:relative;
+  padding:18px;
+  border-radius:36px;
+  background:linear-gradient(180deg, rgba(255,249,240,.98), rgba(242,230,211,.98));
+  border:1px solid rgba(187,160,125,.30);
+  box-shadow:0 28px 56px rgba(34,22,11,.14);
+}
+#s26 .slide26-image-shell{
+  position:relative;
+  height:520px;
+  border-radius:26px;
+  overflow:hidden;
+  background:#f5efe6;
+}
+#s26 .slide26-image-shell::after{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border-radius:18px;
+  border:1px solid rgba(189,154,111,.34);
+  pointer-events:none;
+}
+#s26 .slide26-image-shell .photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%;
+}
+@media (max-width:1100px){
+  #s26 .slide26-frame{width:min(780px,90vw); grid-template-columns:1fr; gap:28px;}
+  #s26 .slide26-image-shell{height:400px;}
+}
+</style>
+
+
+<style id="v38-slide1-redesign">
+/* ===== V38 redesign slide 1 ===== */
+#s01{
+  background:
+    radial-gradient(circle at 14% 18%, rgba(241,201,81,.12), transparent 22%),
+    radial-gradient(circle at 86% 20%, rgba(217,37,29,.10), transparent 20%),
+    linear-gradient(180deg, #6e0808 0%, #8b0d0d 36%, #a91414 100%) !important;
+}
+#s01 .hero-grid{
+  width:min(1260px,88vw) !important;
+  grid-template-columns:minmax(0,620px) minmax(360px,430px) !important;
+  gap:72px !important;
+  justify-content:center !important;
+  align-items:center !important;
+}
+#s01 .hero-copy{
+  max-width:620px !important;
+  padding:34px 38px !important;
+  border-radius:34px !important;
+  background:linear-gradient(180deg, rgba(120,8,8,.34), rgba(86,7,7,.24)) !important;
+  border:1px solid rgba(255,221,130,.16) !important;
+  box-shadow:0 24px 48px rgba(0,0,0,.18) !important;
+  backdrop-filter:blur(4px) !important;
+}
+#s01 .hero-copy .kicker{
+  color:#f3d36f !important;
+  letter-spacing:.18em !important;
+  font-size:15px !important;
+  margin-bottom:14px !important;
+}
+#s01 .hero-copy h1{
+  max-width:100% !important;
+  margin:0 0 18px !important;
+  font-size:clamp(60px,5.1vw,88px) !important;
+  line-height:.94 !important;
+  letter-spacing:-.04em !important;
+  color:#fff8ec !important;
+  text-shadow:0 8px 20px rgba(0,0,0,.22) !important;
+}
+#s01 .hero-copy h1 .hero-line{
+  display:block !important;
+  white-space:nowrap !important;
+}
+#s01 .hero-copy h1 .hero-line + .hero-line{
+  margin-top:.08em !important;
+}
+#s01 .hero-rule{
+  width:min(240px,44%) !important;
+  height:5px !important;
+  border-radius:999px !important;
+  background:linear-gradient(90deg, #f3d36f, rgba(243,211,111,.15)) !important;
+  margin:0 0 18px !important;
+}
+#s01 .hero-copy h3{
+  font-size:clamp(28px,2.2vw,38px) !important;
+  line-height:1.08 !important;
+  letter-spacing:.02em !important;
+  color:#ffeeb8 !important;
+  margin:0 !important;
+}
+#s01 .hero-portrait{
+  min-height:560px !important;
+  display:flex !important;
+  align-items:flex-end !important;
+  justify-content:center !important;
+  padding:16px 8px 0 !important;
+}
+#s01 .portrait-img{
+  width:auto !important;
+  max-width:100% !important;
+  max-height:590px !important;
+  object-fit:contain !important;
+  object-position:center bottom !important;
+  position:relative !important;
+  z-index:2 !important;
+}
+#s01 .portrait-ring{
+  width:390px !important;
+  height:390px !important;
+  bottom:58px !important;
+  border-width:2px !important;
+  border-color:rgba(247,214,108,.55) !important;
+}
+@media (max-width:1100px){
+  #s01 .hero-grid{grid-template-columns:1fr !important; width:min(780px,90vw) !important; gap:26px !important;}
+  #s01 .hero-copy{max-width:100% !important;}
+  #s01 .hero-copy h1 .hero-line{white-space:normal !important;}
+  #s01 .hero-portrait{min-height:420px !important;}
+  #s01 .portrait-img{max-height:430px !important;}
+}
+</style>
+
+
+<style id="v39-slide1-complete-redesign">
+/* ===== V39: completely redesign slide 1 to remove stuck text ===== */
+#s01{
+  background:
+    radial-gradient(circle at 16% 18%, rgba(244,212,94,.12), transparent 24%),
+    radial-gradient(circle at 84% 20%, rgba(217,37,29,.12), transparent 22%),
+    linear-gradient(180deg, #770909 0%, #930e0e 38%, #ae1717 100%) !important;
+  overflow:hidden !important;
+}
+#s01::before{
+  content:"";
+  position:absolute;
+  inset:auto auto -130px -130px;
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(245,211,107,.16) 0%, rgba(245,211,107,.04) 48%, transparent 72%);
+  pointer-events:none;
+}
+#s01::after{
+  content:"";
+  position:absolute;
+  top:-120px;
+  right:-120px;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.09) 0%, rgba(255,255,255,.02) 42%, transparent 74%);
+  pointer-events:none;
+}
+#s01 .slide1-shell{
+  position:relative;
+  z-index:2;
+  width:min(1240px,88vw);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,620px) minmax(320px,430px);
+  align-items:center;
+  justify-content:center;
+  gap:70px;
+}
+#s01 .slide1-copy{
+  max-width:620px;
+  padding:38px 42px;
+  border-radius:34px;
+  background:linear-gradient(180deg, rgba(122,10,10,.38), rgba(91,8,8,.28));
+  border:1px solid rgba(255,226,139,.16);
+  box-shadow:0 26px 52px rgba(0,0,0,.18);
+  backdrop-filter:blur(4px);
+}
+#s01 .slide1-kicker{
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#f4d56d;
+  margin-bottom:16px;
+}
+#s01 .slide1-copy h1{
+  margin:0;
+}
+#s01 .slide1-line{
+  display:block;
+  font-size:clamp(54px,4.8vw,84px);
+  font-weight:900;
+  line-height:1.02;
+  letter-spacing:-.025em;
+  color:#fff9ed;
+  text-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+#s01 .slide1-line + .slide1-line{
+  margin-top:10px;
+}
+#s01 .slide1-divider{
+  width:min(240px,44%);
+  height:5px;
+  border-radius:999px;
+  background:linear-gradient(90deg, #f4d56d, rgba(244,213,109,.12));
+  margin:22px 0 18px;
+}
+#s01 .slide1-copy h3{
+  margin:0;
+  font-size:clamp(28px,2.2vw,38px);
+  line-height:1.08;
+  letter-spacing:.02em;
+  color:#ffeeb8;
+  font-weight:800;
+}
+#s01 .slide1-portrait{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  min-height:560px;
+}
+#s01 .slide1-portrait-wrap{
+  position:relative;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+}
+#s01 .slide1-portrait-img{
+  position:relative;
+  z-index:2;
+  width:auto;
+  max-width:100%;
+  max-height:590px;
+  object-fit:contain;
+  object-position:center bottom;
+}
+#s01 .slide1-ring{
+  position:absolute;
+  z-index:1;
+  width:390px;
+  height:390px;
+  border-radius:50%;
+  border:2px solid rgba(244,213,109,.55);
+  bottom:58px;
+  left:50%;
+  transform:translateX(-50%);
+}
+@media (max-width:1100px){
+  #s01 .slide1-shell{
+    width:min(780px,90vw);
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  #s01 .slide1-copy{
+    max-width:100%;
+    padding:30px 28px;
+  }
+  #s01 .slide1-line{
+    line-height:1.04;
+    white-space:normal;
+  }
+  #s01 .slide1-portrait{
+    min-height:420px;
+  }
+  #s01 .slide1-portrait-img{
+    max-height:430px;
+  }
+  #s01 .slide1-ring{
+    width:300px;
+    height:300px;
+    bottom:40px;
+  }
+}
+</style>
+
+
+<style id="v40-final-slide-redesign">
+/* ===== V40: redesign final thanks slide ===== */
+#s29,
+#s29.screen,
+#s29.thanks{
+  background:
+    radial-gradient(circle at 18% 18%, rgba(214,180,80,.10), transparent 22%),
+    radial-gradient(circle at 82% 22%, rgba(214,180,80,.08), transparent 20%),
+    linear-gradient(180deg, #090909 0%, #101010 100%) !important;
+  color:#fff !important;
+  overflow:hidden !important;
+}
+#s29 .thanks-bg{display:none !important;}
+#s29::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(214,180,80,.08) 0%, rgba(214,180,80,.03) 18%, transparent 42%),
+    linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.22));
+  pointer-events:none;
+  z-index:0;
+}
+#s29::after{
+  display:none !important;
+}
+#s29 .thanks-shell{
+  position:relative;
+  z-index:2;
+  width:min(1120px,88vw);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:130px 1fr 130px;
+  align-items:center;
+  gap:20px;
+}
+#s29 .thanks-content{
+  text-align:center;
+  padding:54px 40px 50px;
+  border-radius:34px;
+  background:linear-gradient(180deg, rgba(21,21,21,.88), rgba(12,12,12,.92));
+  border:1px solid rgba(214,180,80,.24);
+  box-shadow:0 28px 56px rgba(0,0,0,.34);
+}
+#s29 .thanks-kicker{
+  color:#d6b450 !important;
+  font-size:clamp(14px,1vw,18px) !important;
+  letter-spacing:.30em !important;
+  font-weight:800 !important;
+  text-transform:uppercase !important;
+  margin-bottom:20px !important;
+}
+#s29 .thanks-content h2{
+  margin:0 !important;
+  color:#fff8e9 !important;
+  font-family:"Segoe UI Black","Arial Black","Segoe UI",Arial,sans-serif !important;
+  font-size:clamp(86px,9.6vw,158px) !important;
+  line-height:.90 !important;
+  letter-spacing:.04em !important;
+  font-weight:900 !important;
+  text-transform:uppercase !important;
+  text-shadow:0 8px 20px rgba(0,0,0,.24) !important;
+}
+#s29 .thanks-content h2 span{display:block;}
+#s29 .thanks-content h2 span + span{margin-top:4px;}
+#s29 .thanks-divider{
+  width:min(260px,32vw);
+  height:3px;
+  border-radius:999px;
+  margin:22px auto 20px;
+  background:linear-gradient(90deg, transparent, #d6b450, transparent);
+}
+#s29 .thanks-sub{
+  color:#efe4cf !important;
+  font-size:clamp(19px,1.55vw,26px) !important;
+  font-weight:600 !important;
+  line-height:1.55 !important;
+  max-width:32ch;
+  margin:0 auto !important;
+}
+#s29 .thanks-ornament{
+  position:relative;
+  width:130px;
+  height:320px;
+  opacity:.88;
+}
+#s29 .thanks-ornament::before,
+#s29 .thanks-ornament::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:999px;
+}
+#s29 .thanks-ornament::before{
+  top:12px;
+  width:2px;
+  height:296px;
+  background:linear-gradient(180deg, transparent, rgba(214,180,80,.58), transparent);
+}
+#s29 .thanks-ornament::after{
+  top:50%;
+  width:86px;
+  height:86px;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(214,180,80,.34);
+  box-shadow:0 0 0 14px rgba(214,180,80,.05);
+}
+#s29 .thanks-ornament-left{justify-self:end;}
+#s29 .thanks-ornament-right{justify-self:start;}
+@media (max-width:980px){
+  #s29 .thanks-shell{grid-template-columns:1fr; gap:14px; width:min(760px,90vw);} 
+  #s29 .thanks-ornament{display:none;}
+  #s29 .thanks-content{padding:42px 24px 38px;}
+  #s29 .thanks-content h2{font-size:clamp(72px,16vw,120px) !important;}
+}
+</style>
+
+
+<style id="v41-horizontal-thanks">
+#s29 .thanks-content h2{
+  font-size:clamp(80px,9vw,150px) !important;
+  line-height:.95 !important;
+  letter-spacing:.06em !important;
+  white-space:nowrap !important;
+}
+#s29 .thanks-content h2 span{
+  display:inline !important;
+}
+#s29 .thanks-content h2 span + span{
+  margin-top:0 !important;
+}
+@media (max-width:980px){
+  #s29 .thanks-content h2{
+    font-size:clamp(58px,12vw,104px) !important;
+    white-space:normal !important;
+  }
+}
+</style>
+
+
+<style id="v42-redesign-slides-7-23">
+/* ===== V42 redesign slides 7 and 23 ===== */
+#s07{
+  background:
+    radial-gradient(circle at 14% 14%, rgba(239,198,73,.10), transparent 22%),
+    radial-gradient(circle at 84% 82%, rgba(217,37,29,.08), transparent 22%),
+    linear-gradient(180deg,#f7efe3 0%, #efe2d0 100%) !important;
+}
+#s07 .slide07-shell{
+  width:min(1240px,86vw);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+  gap:42px;
+  align-items:stretch;
+}
+#s07 .slide07-copy{
+  background:linear-gradient(180deg, rgba(255,251,245,.96), rgba(250,242,231,.96));
+  border:1px solid rgba(190,165,130,.30);
+  border-radius:34px;
+  padding:34px 34px 30px;
+  box-shadow:0 22px 46px rgba(37,24,12,.08);
+}
+#s07 .slide07-kicker{
+  color:#c82018;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:14px;
+  margin-bottom:14px;
+}
+#s07 .slide07-copy h2{
+  margin:0 0 22px;
+  font-size:clamp(42px,3.5vw,62px);
+  line-height:1.02;
+  letter-spacing:-.03em;
+  color:#17120f;
+  max-width:15ch;
+}
+#s07 .slide07-points{display:grid; gap:12px;}
+#s07 .slide07-point{
+  display:grid;
+  grid-template-columns:66px 1fr;
+  gap:14px;
+  align-items:start;
+  min-height:78px;
+  padding:16px 18px;
+  border-radius:22px;
+  background:#fffdf9;
+  border:1px solid rgba(203,188,168,.56);
+  box-shadow:0 10px 22px rgba(40,27,15,.05);
+}
+#s07 .slide07-point .num{
+  width:50px; height:50px; border-radius:50%; display:grid; place-items:center;
+  font-weight:900; font-size:20px; color:#fff8ec;
+  background:linear-gradient(135deg,#d9251d 0%, #b71710 100%);
+}
+#s07 .slide07-point .txt{font-size:18px; line-height:1.5; color:#231915; font-weight:600;}
+#s07 .slide07-side{display:grid; grid-template-rows:auto 1fr; gap:18px;}
+#s07 .slide07-quote{
+  background:linear-gradient(180deg,#bf1712 0%, #a9110d 100%);
+  color:#fff8ed;
+  border-radius:30px;
+  padding:28px 28px 24px;
+  box-shadow:0 18px 38px rgba(115,10,10,.20);
+}
+#s07 .slide07-quote .small-title{color:#f4d56d; font-size:14px; letter-spacing:.10em; text-transform:uppercase; font-weight:800; margin-bottom:12px;}
+#s07 .slide07-quote blockquote{margin:0 0 14px; font-size:32px; line-height:1.24; font-weight:800;}
+#s07 .slide07-quote p{margin:0; font-size:17px; line-height:1.55; color:#ffedd6;}
+#s07 .slide07-photo{
+  min-height:280px;
+  border-radius:30px;
+  overflow:hidden;
+  background:#f4eee4;
+  border:1px solid rgba(188,160,122,.30);
+  box-shadow:0 20px 40px rgba(36,23,11,.12);
+}
+#s07 .slide07-photo img{width:100%; height:100%; object-fit:cover; object-position:center 18%;}
+
+#s23{
+  background:
+    radial-gradient(circle at 12% 18%, rgba(239,198,73,.08), transparent 22%),
+    linear-gradient(180deg,#f6efe3 0%, #eadccb 100%) !important;
+}
+#s23 .vn-map-right{opacity:.10 !important; right:1.8vw !important; width:30vw !important; max-width:430px !important;}
+#s23 .slide23-shell{
+  width:min(1240px,86vw);
+  margin:0 auto;
+}
+#s23 .slide23-head{margin-bottom:24px;}
+#s23 .slide23-head .kicker{color:#c52118; font-weight:800; letter-spacing:.14em; text-transform:uppercase; font-size:14px; margin-bottom:10px;}
+#s23 .slide23-head h2{
+  margin:0;
+  font-size:clamp(46px,4.1vw,72px);
+  line-height:1.00;
+  letter-spacing:-.04em;
+  color:#17120f;
+  max-width:11ch;
+}
+#s23 .slide23-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(320px,460px);
+  gap:34px;
+  align-items:stretch;
+}
+#s23 .slide23-copy{display:grid; gap:14px;}
+#s23 .slide23-card{
+  display:grid;
+  gap:6px;
+  padding:18px 20px;
+  border-radius:22px;
+  background:rgba(255,252,247,.96);
+  border:1px solid rgba(198,182,161,.56);
+  box-shadow:0 12px 26px rgba(43,28,15,.06);
+}
+#s23 .slide23-card b{font-size:18px; color:#c52118; line-height:1.35;}
+#s23 .slide23-card span{font-size:19px; line-height:1.52; color:#231915; font-weight:600;}
+#s23 .slide23-visual{display:grid; grid-template-rows:1fr 190px; gap:16px;}
+#s23 .slide23-photo{
+  overflow:hidden;
+  border-radius:30px;
+  background:#f6efe6;
+  border:1px solid rgba(191,164,126,.32);
+  box-shadow:0 18px 38px rgba(36,23,11,.12);
+}
+#s23 .slide23-photo.main{min-height:320px;}
+#s23 .slide23-photo.sub{min-height:190px;}
+#s23 .slide23-photo .photo{width:100%; height:100%; object-fit:cover;}
+#s23 .slide23-photo.main .photo{object-position:center 18%;}
+#s23 .slide23-photo.sub .photo{object-position:center 20%;}
+@media (max-width:1100px){
+  #s07 .slide07-shell,
+  #s23 .slide23-grid{grid-template-columns:1fr; width:min(760px,90vw);} 
+  #s07 .slide07-copy h2,#s23 .slide23-head h2{max-width:none;}
+  #s23 .slide23-shell{width:min(760px,90vw);}
+  #s23 .slide23-visual{grid-template-rows:340px 180px;}
+}
+</style>
+
+
+<style id="v43-slide23-redesign-second-pass">
+/* ===== V43: redesign slide 23 again ===== */
+#s23{
+  background:
+    radial-gradient(circle at 15% 18%, rgba(239,198,73,.10), transparent 24%),
+    radial-gradient(circle at 84% 84%, rgba(208,37,29,.08), transparent 22%),
+    linear-gradient(180deg, #f8f1e7 0%, #ecdccb 100%) !important;
+  overflow:hidden !important;
+}
+#s23 .vn-map-right{
+  opacity:.11 !important;
+  width:33vw !important;
+  max-width:480px !important;
+  right:1vw !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  filter:grayscale(1) contrast(.92) brightness(1.02) !important;
+}
+#s23 .slide23b-shell{
+  width:min(1250px,86vw);
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+#s23 .slide23b-head{
+  margin-bottom:26px;
+  max-width:900px;
+}
+#s23 .slide23b-kicker{
+  color:#c71f18;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+#s23 .slide23b-head h2{
+  margin:0;
+  font-size:clamp(48px,4.2vw,76px);
+  line-height:.98;
+  letter-spacing:-.045em;
+  color:#17120f;
+  max-width:11ch;
+}
+#s23 .slide23b-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.03fr) minmax(360px,.97fr);
+  gap:38px;
+  align-items:stretch;
+}
+#s23 .slide23b-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+#s23 .slide23b-card{
+  min-height:182px;
+  padding:18px 18px 20px;
+  border-radius:28px;
+  background:linear-gradient(180deg, rgba(255,252,247,.96), rgba(252,246,238,.96));
+  border:1px solid rgba(198,181,160,.58);
+  box-shadow:0 14px 30px rgba(44,29,16,.07);
+  display:grid;
+  grid-template-columns:68px 1fr;
+  gap:14px;
+  align-items:start;
+}
+#s23 .slide23b-num{
+  width:54px;
+  height:54px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  font-weight:900;
+  color:#fff7ea;
+  background:linear-gradient(135deg,#d9251d 0%, #ba1812 100%);
+  box-shadow:0 8px 18px rgba(185,25,18,.22);
+}
+#s23 .slide23b-body{
+  display:grid;
+  gap:8px;
+}
+#s23 .slide23b-body b{
+  color:#bf1e17;
+  font-size:19px;
+  line-height:1.35;
+}
+#s23 .slide23b-body span{
+  color:#241a15;
+  font-size:18px;
+  line-height:1.55;
+  font-weight:600;
+}
+#s23 .slide23b-visual{
+  position:relative;
+  min-height:470px;
+  display:flex;
+  align-items:stretch;
+  justify-content:flex-end;
+}
+#s23 .slide23b-photo-main,
+#s23 .slide23b-photo-sub{
+  overflow:hidden;
+  border-radius:30px;
+  background:#f6efe6;
+  border:1px solid rgba(190,164,126,.32);
+  box-shadow:0 20px 40px rgba(36,23,11,.14);
+}
+#s23 .slide23b-photo-main{
+  width:min(100%, 440px);
+  min-height:470px;
+  position:relative;
+  z-index:1;
+}
+#s23 .slide23b-photo-main .photo{
+  width:100%; height:100%; object-fit:cover; object-position:center 18%;
+}
+#s23 .slide23b-photo-sub{
+  position:absolute;
+  left:-14px;
+  bottom:24px;
+  width:220px;
+  height:160px;
+  z-index:2;
+  padding:8px;
+  background:linear-gradient(180deg,#fffaf3 0%, #f1e4d2 100%);
+}
+#s23 .slide23b-photo-sub .photo{
+  width:100%; height:100%; object-fit:cover; object-position:center 20%; border-radius:20px;
+}
+@media (max-width:1100px){
+  #s23 .slide23b-shell{width:min(760px,90vw);}
+  #s23 .slide23b-grid{grid-template-columns:1fr; gap:26px;}
+  #s23 .slide23b-cards{grid-template-columns:1fr;}
+  #s23 .slide23b-visual{min-height:420px; justify-content:center;}
+  #s23 .slide23b-photo-main{width:100%; min-height:420px;}
+  #s23 .slide23b-photo-sub{left:14px; bottom:16px; width:200px; height:148px;}
+  #s23 .slide23b-head h2{max-width:none;}
+}
+</style>
+
+
+<style id="v44-slide23-one-image">
+/* ===== V44: slide 23 with only one image ===== */
+#s23{
+  background:
+    radial-gradient(circle at 15% 18%, rgba(239,198,73,.10), transparent 24%),
+    radial-gradient(circle at 84% 84%, rgba(208,37,29,.08), transparent 22%),
+    linear-gradient(180deg, #f8f1e7 0%, #ecdccb 100%) !important;
+  overflow:hidden !important;
+}
+#s23 .vn-map-right{
+  opacity:.11 !important;
+  width:33vw !important;
+  max-width:480px !important;
+  right:1vw !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  filter:grayscale(1) contrast(.92) brightness(1.02) !important;
+}
+#s23 .slide23c-shell{
+  width:min(1250px,86vw);
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+#s23 .slide23c-head{
+  margin-bottom:26px;
+  max-width:900px;
+}
+#s23 .slide23c-kicker{
+  color:#c71f18;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+#s23 .slide23c-head h2{
+  margin:0;
+  font-size:clamp(48px,4.2vw,76px);
+  line-height:.98;
+  letter-spacing:-.045em;
+  color:#17120f;
+  max-width:11ch;
+}
+#s23 .slide23c-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.03fr) minmax(360px,.92fr);
+  gap:38px;
+  align-items:stretch;
+}
+#s23 .slide23c-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+#s23 .slide23c-card{
+  min-height:182px;
+  padding:18px 18px 20px;
+  border-radius:28px;
+  background:linear-gradient(180deg, rgba(255,252,247,.96), rgba(252,246,238,.96));
+  border:1px solid rgba(198,181,160,.58);
+  box-shadow:0 14px 30px rgba(44,29,16,.07);
+  display:grid;
+  grid-template-columns:68px 1fr;
+  gap:14px;
+  align-items:start;
+}
+#s23 .slide23c-num{
+  width:54px;
+  height:54px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  font-weight:900;
+  color:#fff7ea;
+  background:linear-gradient(135deg,#d9251d 0%, #ba1812 100%);
+  box-shadow:0 8px 18px rgba(185,25,18,.22);
+}
+#s23 .slide23c-body{display:grid; gap:8px;}
+#s23 .slide23c-body b{
+  color:#bf1e17;
+  font-size:19px;
+  line-height:1.35;
+}
+#s23 .slide23c-body span{
+  color:#241a15;
+  font-size:18px;
+  line-height:1.55;
+  font-weight:600;
+}
+#s23 .slide23c-visual{
+  display:flex;
+  align-items:stretch;
+  justify-content:flex-end;
+  min-height:470px;
+}
+#s23 .slide23c-photo{
+  width:min(100%, 440px);
+  min-height:470px;
+  overflow:hidden;
+  border-radius:32px;
+  background:#f6efe6;
+  border:1px solid rgba(190,164,126,.32);
+  box-shadow:0 20px 40px rgba(36,23,11,.14);
+  padding:10px;
+}
+#s23 .slide23c-photo .photo{
+  width:100%; height:100%; object-fit:cover; object-position:center 18%; border-radius:24px;
+}
+@media (max-width:1100px){
+  #s23 .slide23c-shell{width:min(760px,90vw);}
+  #s23 .slide23c-grid{grid-template-columns:1fr; gap:26px;}
+  #s23 .slide23c-cards{grid-template-columns:1fr;}
+  #s23 .slide23c-visual{min-height:400px; justify-content:center;}
+  #s23 .slide23c-photo{width:100%; min-height:400px;}
+  #s23 .slide23c-head h2{max-width:none;}
+}
+</style>
+
+
+<style id="v45-slide15-color-sync">
+/* ===== V45: slide 15 text colors synchronized with site palette ===== */
+#s15 .kicker{
+  color:#c52118 !important;
+}
+#s15 .content-column h2{
+  color:#171412 !important;
+}
+#s15 .content-column h2 .title-red{
+  color:#171412 !important;
+  -webkit-text-fill-color:#171412 !important;
+}
+#s15 .content-column h2 .title-yellow{
+  color:#c52118 !important;
+  -webkit-text-fill-color:#c52118 !important;
+}
+#s15 .lead{
+  color:#39332e !important;
+}
+#s15 .lead .accent-red{
+  color:#c52118 !important;
+}
+#s15 .lead .accent-gold{
+  color:#9b1712 !important;
+}
+#s15 .callout{
+  color:#2c2520 !important;
+  border-left-color:#c52118 !important;
+}
+#s15 .s15-panel .panel-label,
+#s15 .s15-panel .red-text{
+  color:#c52118 !important;
+}
+#s15 .s15-panel p{
+  color:#39332e !important;
+}
+</style>
+
 </head>
 <body>
 <div aria-hidden="true" class="rightStarDecor">
@@ -6074,17 +7300,22 @@ h1,h2{
 <a data-slide="29" href="#s29">29</a></nav>
 <div class="counter" id="counter">1 / 29</div>
 <section class="screen hero" data-slide="1" id="s01">
-<div class="hero-grid">
-<div class="hero-copy reveal">
-<div class="kicker light">TƯ TƯỞNG HỒ CHÍ MINH</div>
-<h1><span class="hero-line">VỀ ĐẠI ĐOÀN KẾT</span><span class="hero-line">TOÀN DÂN TỘC</span></h1>
-<div class="hero-rule"></div>
-<h3>ĐOÀN KẾT QUỐC TẾ</h3>
-</div>
-<div class="hero-portrait reveal hoverable">
-<img alt="" class="portrait-img" src="assets/p01_0.png"/>
-<div class="portrait-ring"></div>
-</div>
+<div class="slide1-shell">
+  <div class="slide1-copy reveal">
+    <div class="slide1-kicker">TƯ TƯỞNG HỒ CHÍ MINH</div>
+    <h1>
+      <span class="slide1-line">VỀ ĐẠI ĐOÀN KẾT</span>
+      <span class="slide1-line">TOÀN DÂN TỘC</span>
+    </h1>
+    <div class="slide1-divider"></div>
+    <h3>ĐOÀN KẾT QUỐC TẾ</h3>
+  </div>
+  <div class="slide1-portrait reveal hoverable">
+    <div class="slide1-portrait-wrap">
+      <img alt="Chân dung Chủ tịch Hồ Chí Minh" class="slide1-portrait-img" src="assets/p01_0.png"/>
+      <div class="slide1-ring"></div>
+    </div>
+  </div>
 </div>
 </section>
 <section class="screen agenda" data-slide="2" id="s02">
@@ -6176,22 +7407,25 @@ h1,h2{
 </div>
 </section>
 <section class="screen" data-slide="7" id="s07">
-<div class="wrap two-column">
-<div class="copy reveal">
-<div class="kicker">a. Chủ thể của khối đại đoàn kết toàn dân tộc</div>
-<h2>Trong quá trình xây dựng khối đại đoàn kết toàn dân tộc</h2>
-<div class="bullet-stack">
-<div class="bullet-card hoverable">Phải đứng vững trên lập trường giai cấp công nhân.</div>
-<div class="bullet-card hoverable">Giải quyết hài hòa quan hệ giai cấp – dân tộc.</div>
-<div class="bullet-card hoverable">Tập hợp lực lượng rộng rãi, không bỏ sót lực lượng nào, miễn là họ có lòng trung thành và sẵn sàng phục vụ Tổ quốc.</div>
-<div class="bullet-card hoverable">Không phân biệt quá khứ của mỗi người, nhằm phát huy quyền làm chủ của nhân dân.</div>
-</div>
-</div>
-<div class="quote-panel red-panel reveal hoverable">
-<div class="small-title">Hồ Chí Minh nhấn mạnh tinh thần:</div>
-<blockquote>“Ai có tài, có đức, có sức, có lòng phụng sự Tổ quốc và phục vụ nhân dân thì ta đoàn kết với họ.”</blockquote>
-<p>Tức là “ta” ở đây vừa là Đảng Cộng sản Việt Nam, vừa là mỗi người dân Việt Nam nói chung.</p>
-<div class="added-archive-photo hoverable"><img alt="Ảnh tư liệu Hồ Chí Minh với nhân dân" src="assets/p09_3.png"/></div></div>
+<div class="slide07-shell reveal">
+  <div class="slide07-copy">
+    <div class="slide07-kicker">a. Chủ thể của khối đại đoàn kết toàn dân tộc</div>
+    <h2>Trong quá trình xây dựng khối đại đoàn kết toàn dân tộc</h2>
+    <div class="slide07-points">
+      <div class="slide07-point hoverable"><span class="num">01</span><span class="txt">Phải đứng vững trên lập trường giai cấp công nhân.</span></div>
+      <div class="slide07-point hoverable"><span class="num">02</span><span class="txt">Giải quyết hài hòa quan hệ giai cấp – dân tộc.</span></div>
+      <div class="slide07-point hoverable"><span class="num">03</span><span class="txt">Tập hợp lực lượng rộng rãi, không bỏ sót lực lượng nào, miễn là họ có lòng trung thành và sẵn sàng phục vụ Tổ quốc.</span></div>
+      <div class="slide07-point hoverable"><span class="num">04</span><span class="txt">Không phân biệt quá khứ của mỗi người, nhằm phát huy quyền làm chủ của nhân dân.</span></div>
+    </div>
+  </div>
+  <div class="slide07-side">
+    <div class="slide07-quote hoverable">
+      <div class="small-title">Hồ Chí Minh nhấn mạnh tinh thần:</div>
+      <blockquote>“Ai có tài, có đức, có sức, có lòng phụng sự Tổ quốc và phục vụ nhân dân thì ta đoàn kết với họ.”</blockquote>
+      <p>Tức là “ta” ở đây vừa là Đảng Cộng sản Việt Nam, vừa là mỗi người dân Việt Nam nói chung.</p>
+    </div>
+    <div class="slide07-photo hoverable"><img alt="Ảnh tư liệu Hồ Chí Minh với nhân dân" src="assets/p09_3.png"/></div>
+  </div>
 </div>
 </section>
 <section class="screen" data-slide="8" id="s08">
@@ -6429,21 +7663,46 @@ h1,h2{
 </section>
 <section class="screen" data-slide="23" id="s23">
 <div aria-hidden="true" class="vn-map-decor vn-map-right"></div>
-<div class="wrap two-column image-heavy quanchung-layout">
-<div class="copy reveal">
-<div class="kicker">Phương thức 1</div>
-<h2><span class="line1">Công Tác Vận Động</span><span class="line2">Quần Chúng</span></h2>
-<div class="bullet-stack">
-<div class="bullet-card hoverable"><b>Mục tiêu hàng đầu:</b> Tạo động lực phát triển kinh tế, xã hội, văn hóa.</div>
-<div class="bullet-card hoverable"><b>Phương pháp tiếp cận:</b> Phù hợp tâm tư, nguyện vọng, phong tục.</div>
-<div class="bullet-card hoverable"><b>Tuyên truyền giáo dục:</b> Giúp nhân dân hiểu rõ quyền lợi và nghĩa vụ.</div>
-<div class="bullet-card hoverable"><b>Hành động tự giác:</b> Kích thích quần chúng chủ động cống hiến.</div>
-</div>
-</div>
-<div class="quanchung-visual reveal">
-<div class="photo-card main hoverable"><img alt="Ảnh tư liệu quần chúng hưởng ứng và tham gia" class="photo" src="assets/p25_1.png"/></div>
-<div class="photo-card side hoverable"><img alt="Ảnh tư liệu Hồ Chí Minh với nhân dân" class="photo" src="assets/p12_1.png"/></div>
-</div>
+<div class="slide23c-shell reveal">
+  <div class="slide23c-head">
+    <div class="slide23c-kicker">Phương thức 1</div>
+    <h2>Công Tác Vận Động Quần Chúng</h2>
+  </div>
+  <div class="slide23c-grid">
+    <div class="slide23c-cards">
+      <div class="slide23c-card hoverable">
+        <div class="slide23c-num">01</div>
+        <div class="slide23c-body">
+          <b>Mục tiêu hàng đầu</b>
+          <span>Tạo động lực phát triển kinh tế, xã hội, văn hóa.</span>
+        </div>
+      </div>
+      <div class="slide23c-card hoverable">
+        <div class="slide23c-num">02</div>
+        <div class="slide23c-body">
+          <b>Phương pháp tiếp cận</b>
+          <span>Phù hợp tâm tư, nguyện vọng, phong tục.</span>
+        </div>
+      </div>
+      <div class="slide23c-card hoverable">
+        <div class="slide23c-num">03</div>
+        <div class="slide23c-body">
+          <b>Tuyên truyền giáo dục</b>
+          <span>Giúp nhân dân hiểu rõ quyền lợi và nghĩa vụ.</span>
+        </div>
+      </div>
+      <div class="slide23c-card hoverable">
+        <div class="slide23c-num">04</div>
+        <div class="slide23c-body">
+          <b>Hành động tự giác</b>
+          <span>Kích thích quần chúng chủ động cống hiến.</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide23c-visual">
+      <div class="slide23c-photo hoverable"><img alt="Ảnh tư liệu quần chúng hưởng ứng và tham gia" class="photo" src="assets/p25_1.png"/></div>
+    </div>
+  </div>
 </div>
 </section>
 <section class="screen quote-screen" data-slide="24" id="s24">
@@ -6472,18 +7731,30 @@ h1,h2{
 </div>
 </section>
 <section class="screen" data-slide="26" id="s26">
-<div aria-hidden="true" class="vn-map-decor vn-map-right"></div>
-<div class="wrap role-balanced">
-<div class="role-copy reveal">
-<div class="kicker">Vai trò của các đoàn thể</div>
-<h2>VAI TRÒ CỦA CÁC ĐOÀN THỂ</h2>
-<div class="triple-stack large centered-stack">
-<div class="triple-item hoverable"><b>01</b><span>Giáo dục, rèn luyện quần chúng.</span></div>
-<div class="triple-item hoverable"><b>02</b><span>Đấu tranh bảo vệ quyền, lợi ích.</span></div>
-<div class="triple-item hoverable"><b>03</b><span>Hạt nhân của đại đoàn kết.</span></div>
-</div>
-</div>
-<div class="photo-card respectful-photo reveal hoverable role-photo"><img alt="" class="photo" src="assets/p26_1.png"/></div>
+<div class="slide26-frame reveal">
+  <div class="slide26-copy">
+    <div class="slide26-kicker">Vai trò của các đoàn thể</div>
+    <h2>VAI TRÒ <span>CỦA CÁC ĐOÀN THỂ</span></h2>
+    <div class="slide26-items">
+      <div class="slide26-item hoverable">
+        <div class="slide26-num">01</div>
+        <div class="slide26-text">Giáo dục, rèn luyện quần chúng.</div>
+      </div>
+      <div class="slide26-item hoverable">
+        <div class="slide26-num">02</div>
+        <div class="slide26-text">Đấu tranh bảo vệ quyền, lợi ích.</div>
+      </div>
+      <div class="slide26-item hoverable">
+        <div class="slide26-num">03</div>
+        <div class="slide26-text">Hạt nhân của đại đoàn kết.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide26-visual hoverable">
+    <div class="slide26-image-shell">
+      <img alt="Ảnh tư liệu về vai trò các đoàn thể" class="photo" src="assets/p26_1.png"/>
+    </div>
+  </div>
 </div>
 </section>
 <section class="screen" data-slide="27" id="s27">
@@ -6507,8 +7778,16 @@ h1,h2{
 </div>
 </section>
 <section class="screen thanks" data-slide="29" id="s29">
-<div class="thanks-bg" style="background-image:url('assets/p29_1.png')"></div>
-<div class="thanks-inner reveal"><div class="thanks-kicker">Xin chân thành</div><h2>CẢM ƠN</h2><div class="thanks-sub">Trân trọng cảm ơn sự theo dõi của thầy cô và các bạn.</div></div>
+<div class="thanks-shell reveal">
+  <div class="thanks-ornament thanks-ornament-left"></div>
+  <div class="thanks-content">
+    <div class="thanks-kicker">XIN CHÂN THÀNH</div>
+    <h2><span>CẢM ƠN</span></h2>
+    <div class="thanks-divider"></div>
+    <div class="thanks-sub">Trân trọng cảm ơn sự theo dõi của thầy cô và các bạn.</div>
+  </div>
+  <div class="thanks-ornament thanks-ornament-right"></div>
+</div>
 </section>
 <script>
 const screens=[...document.querySelectorAll('.screen')];
@@ -6790,58 +8069,57 @@ document.addEventListener('keydown',e=>{
 </script>
 
 
-<!-- ===== Added CQ + AI information (existing content unchanged) ===== -->
-<style id="cq-ai-addon-style">
-.cqAiTools{position:fixed;right:24px;bottom:24px;z-index:1200;display:flex;gap:10px;align-items:center}
-.cqAiBtn{border:0;border-radius:999px;padding:12px 18px;font:900 13px/1 "Segoe UI",Arial,sans-serif;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.18);transition:.18s transform,.18s box-shadow}
-.cqAiBtn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.24)}
-.cqAiBtn.cq{background:#cf2018;color:#fff}.cqAiBtn.ai{background:#171717;color:#ffd900}
-.cqAiModal{position:fixed;inset:0;z-index:1300;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(12,10,9,.72);backdrop-filter:blur(10px)}
-.cqAiModal.open{display:flex}.cqAiCard{width:min(920px,94vw);max-height:86vh;overflow:auto;background:#faf7f0;border:1px solid #d8cec0;border-radius:28px;padding:30px;box-shadow:0 30px 80px rgba(0,0,0,.28);position:relative}
-.cqAiClose{position:absolute;right:16px;top:16px;width:38px;height:38px;border:0;border-radius:50%;background:#171717;color:#fff;font-size:22px;cursor:pointer}
-.cqAiLabel{display:inline-block;margin-bottom:14px;padding:7px 11px;border-radius:999px;background:#cf2018;color:#fff;font-size:12px;font-weight:1000;letter-spacing:.08em}
-.cqAiCard h2{font-size:clamp(32px,4vw,54px)!important;line-height:1.05!important;margin:0 48px 18px 0!important;color:#14110f!important}
-.cqAiQuestion{font-size:18px!important;line-height:1.6!important;font-weight:800;color:#14110f!important;padding:18px 20px;border-left:5px solid #cf2018;background:#fff;border-radius:0 18px 18px 0;margin-bottom:20px}
-.cqAiAnswer{font-size:18px!important;line-height:1.7!important;color:#39332e!important;margin:0}.cqAiAnswer+p.cqAiAnswer{margin-top:12px}
-.cqAiCard.aiCard .cqAiLabel{background:#171717;color:#ffd900}.cqAiCard.aiCard h2{margin-bottom:14px!important}
-@media(max-width:680px){.cqAiTools{right:12px;bottom:12px}.cqAiBtn{padding:10px 14px}.cqAiCard{padding:24px 20px}.cqAiQuestion,.cqAiAnswer{font-size:16px!important}}
-</style>
-<div class="cqAiTools" aria-label="Thông tin bổ sung">
-  <button class="cqAiBtn cq" type="button" data-open-cq="cqModal">CQ</button>
-  <button class="cqAiBtn ai" type="button" data-open-cq="aiModal">Ứng dụng AI</button>
-</div>
-<div class="cqAiModal" id="cqModal" role="dialog" aria-modal="true" aria-labelledby="cqTitle">
-  <div class="cqAiCard">
-    <button class="cqAiClose" type="button" aria-label="Đóng">×</button>
-    <div class="cqAiLabel">CQ7</div>
-    <h2 id="cqTitle">Câu hỏi phản biện</h2>
-    <div class="cqAiQuestion">Theo các bạn, khi xác định chủ thể của khối đại đoàn kết dân tộc, vì sao Hồ Chí Minh không lựa chọn chỉ đoàn kết trong giai cấp công nhân mà xác định là toàn thể nhân dân Việt Nam? Điều này có đi ngược lại với lý luận quan điểm “Vô sản toàn thế giới, đoàn kết lại” của Mác - Ăngghen không?</div>
-    <p class="cqAiAnswer">Hồ Chí Minh xác định chủ thể của khối đại đoàn kết là toàn thể nhân dân chứ không chỉ riêng giai cấp công nhân vì Người xuất phát từ điều kiện thực tế của Việt Nam là một nước thuộc địa. Lúc đó, nhiệm vụ trước hết là giải phóng dân tộc, mà đây không chỉ là lợi ích của công nhân mà là lợi ích chung của toàn thể người Việt Nam. Vì vậy phải tập hợp mọi lực lượng yêu nước để tạo thành sức mạnh lớn nhất.</p>
-    <p class="cqAiAnswer">Điều này không phủ nhận quan điểm “Vô sản tất cả các nước, đoàn kết lại” của Marx và Engels. Hồ Chí Minh vẫn coi công nhân, nông dân và trí thức là nền tảng của khối đại đoàn kết, nhưng trên nền tảng đó mở rộng đoàn kết với các tầng lớp khác. Có thể hiểu đây là sự vận dụng lý luận Marxist vào điều kiện cụ thể của Việt Nam, kết hợp giữa đoàn kết giai cấp với đoàn kết dân tộc.</p>
-  </div>
-</div>
-<div class="cqAiModal" id="aiModal" role="dialog" aria-modal="true" aria-labelledby="aiTitle">
-  <div class="cqAiCard aiCard">
-    <button class="cqAiClose" type="button" aria-label="Đóng">×</button>
-    <div class="cqAiLabel">ỨNG DỤNG AI</div>
-    <h2 id="aiTitle">AI được sử dụng trong sản phẩm</h2>
-    <p class="cqAiAnswer">Nhóm đã sử dụng NotebookLM để tổng hợp thông tin, Chatgpt để tạo web và game</p>
-  </div>
-</div>
-<script id="cq-ai-addon-script">
+<script id="v35-nav-hardening">
 (() => {
-  const modals = [...document.querySelectorAll('.cqAiModal')];
-  const closeAll = () => modals.forEach(m => m.classList.remove('open'));
-  document.querySelectorAll('[data-open-cq]').forEach(btn => btn.addEventListener('click', () => {
-    closeAll();
-    document.getElementById(btn.dataset.openCq)?.classList.add('open');
-  }));
-  modals.forEach(m => {
-    m.querySelector('.cqAiClose')?.addEventListener('click', closeAll);
-    m.addEventListener('click', e => { if(e.target === m) closeAll(); });
-  });
-  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeAll(); });
+  function bindNav(selector){
+    document.querySelectorAll(selector).forEach(a => {
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        const href = this.getAttribute('href');
+        if(!href || !href.startsWith('#')) return;
+        const target = document.querySelector(href);
+        if(target){
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+          history.replaceState(null,'',href);
+        }
+      }, true);
+    });
+  }
+  bindNav('.rail a');
+  bindNav('.quickNav a');
 })();
 </script>
+
+
+<!-- ===== ADD-ON ONLY: CQ + ỨNG DỤNG AI ===== -->
+<style id="cq-ai-addon-style">
+.cqai-tools{position:fixed;right:28px;bottom:82px;z-index:5000;display:flex;flex-direction:column;gap:10px}.cqai-btn{border:0;border-radius:999px;padding:12px 18px;font:800 14px/1 "Segoe UI",Arial,sans-serif;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.18);background:#cf2018;color:#fff}.cqai-btn.ai{background:#171717;color:#ffd900}.cqai-modal{position:fixed;inset:0;z-index:6000;background:rgba(0,0,0,.58);display:none;align-items:center;justify-content:center;padding:24px}.cqai-modal.open{display:flex}.cqai-box{width:min(900px,94vw);max-height:86vh;overflow:auto;background:#faf7f0;border:1px solid #d8cec0;border-radius:28px;padding:30px;box-shadow:0 28px 80px rgba(0,0,0,.28);position:relative}.cqai-box h2{font-size:clamp(32px,4vw,54px)!important;margin:0 48px 18px 0!important;color:#14110f!important}.cqai-box h3{font-size:20px!important;line-height:1.45!important;color:#8f1713!important;margin:18px 0 10px!important}.cqai-box p{font-size:18px!important;line-height:1.7!important;color:#39332e!important;margin:0 0 14px!important}.cqai-close{position:absolute;right:18px;top:16px;width:40px;height:40px;border:0;border-radius:50%;background:#171717;color:#fff;font-size:24px;cursor:pointer}@media(max-width:680px){.cqai-tools{right:14px;bottom:72px}.cqai-btn{padding:11px 14px}.cqai-box{padding:24px 20px}}
+</style>
+<div class="cqai-tools" aria-label="CQ và ứng dụng AI">
+  <button class="cqai-btn" type="button" data-cqai-open="cqai-cq">CQ</button>
+  <button class="cqai-btn ai" type="button" data-cqai-open="cqai-ai">Ứng dụng AI</button>
+</div>
+<div class="cqai-modal" id="cqai-cq" role="dialog" aria-modal="true" aria-labelledby="cqai-cq-title">
+ <div class="cqai-box">
+  <button class="cqai-close" type="button" aria-label="Đóng">×</button>
+  <h2 id="cqai-cq-title">CQ7</h2>
+  <h3>Theo các bạn, khi xác định chủ thể của khối đại đoàn kết dân tộc, vì sao Hồ Chí Minh không lựa chọn chỉ đoàn kết trong giai cấp công nhân mà xác định là toàn thể nhân dân Việt Nam? Điều này có đi ngược lại với lý luận quan điểm “Vô sản toàn thế giới, đoàn kết lại” của Mác - Ăngghen không?</h3>
+  <p>Hồ Chí Minh xác định chủ thể của khối đại đoàn kết là toàn thể nhân dân chứ không chỉ riêng giai cấp công nhân vì Người xuất phát từ điều kiện thực tế của Việt Nam là một nước thuộc địa. Lúc đó, nhiệm vụ trước hết là giải phóng dân tộc, mà đây không chỉ là lợi ích của công nhân mà là lợi ích chung của toàn thể người Việt Nam. Vì vậy phải tập hợp mọi lực lượng yêu nước để tạo thành sức mạnh lớn nhất.</p>
+  <p>Điều này không phủ nhận quan điểm “Vô sản tất cả các nước, đoàn kết lại” của Marx và Engels. Hồ Chí Minh vẫn coi công nhân, nông dân và trí thức là nền tảng của khối đại đoàn kết, nhưng trên nền tảng đó mở rộng đoàn kết với các tầng lớp khác. Có thể hiểu đây là sự vận dụng lý luận Marxist vào điều kiện cụ thể của Việt Nam, kết hợp giữa đoàn kết giai cấp với đoàn kết dân tộc.</p>
+ </div>
+</div>
+<div class="cqai-modal" id="cqai-ai" role="dialog" aria-modal="true" aria-labelledby="cqai-ai-title">
+ <div class="cqai-box">
+  <button class="cqai-close" type="button" aria-label="Đóng">×</button>
+  <h2 id="cqai-ai-title">Ứng dụng AI</h2>
+  <p>Nhóm đã sử dụng NotebookLM để tổng hợp thông tin, Chatgpt để tạo web và game</p>
+ </div>
+</div>
+<script id="cq-ai-addon-script">
+(()=>{const ms=document.querySelectorAll('.cqai-modal');document.querySelectorAll('[data-cqai-open]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();document.getElementById(b.dataset.cqaiOpen)?.classList.add('open')}));ms.forEach(m=>{m.querySelector('.cqai-close')?.addEventListener('click',()=>m.classList.remove('open'));m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')})});document.addEventListener('keydown',e=>{if(e.key==='Escape')ms.forEach(m=>m.classList.remove('open'))})})();
+</script>
+<!-- ===== END ADD-ON ===== -->
+
 </body>
 </html>
